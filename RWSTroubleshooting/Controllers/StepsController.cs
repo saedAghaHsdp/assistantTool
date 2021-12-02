@@ -53,7 +53,7 @@ namespace RWSTroubleshooting.Controllers
                         Text = "...",
                         Options = new Option[]
                         {
-                            new Option {Text = "Call your administrator", NextStep = 1},
+                            new Option {Text = "Call your administrator", NextStep = -1},
                         }
                     };
             }

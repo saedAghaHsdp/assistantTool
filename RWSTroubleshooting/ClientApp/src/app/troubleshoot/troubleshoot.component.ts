@@ -1,10 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-troubleshoot',
   templateUrl: './troubleshoot.component.html',
+  styleUrls: ['troubleshoot.component.css'],
 })
 export class TroubleshootComponent implements OnInit{
   public stepText: string;
@@ -30,9 +30,15 @@ export class TroubleshootComponent implements OnInit{
     error => console.error(error));
   }
 
-  onItemChange(value) {
+  onRadioButtonChange(value) {
     this.nextStep = value;
   }
+
+  goToStart() {
+    this.nextStep = 1;
+    this.getNextStep();
+  }
+
 }
 
 interface Step {

@@ -1,12 +1,21 @@
 <h1>RWS Troubleshooting</h1>
 
-<p>{{stepText}}</p>
-
-<div *ngFor="let option of options; index as i;">
+<!--div *ngFor="let option of options; index as i;">
   <label>
     <input type="radio" [(ngModel)]="nextStep" value="{{option.nextStep}}" name="option{{i}}" />
     {{option.text}}
   </label>
-</div>
 
-<button class="btn btn-primary" (click)="getNextStep()">Submit</button>
+</div-->
+<section class="mat-typography">
+<label id="step-label">{{stepText}}</label>
+<mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+  <mat-radio-button class="example-radio-button" *ngFor="let option of options; index as i;" (change)="onRadioButtonChange($event.value)" [value]="option.nextStep" >
+    {{option.text}}
+  </mat-radio-button>
+</mat-radio-group>
+
+<button *ngIf="nextStep > 0" mat-stroked-button color="primary" (click)="getNextStep()">Next step</button>
+<button *ngIf="nextStep <= 0" mat-stroked-button class="start-button" color="primary" (click)="goToStart()">Go to start</button>
+</section>
+
