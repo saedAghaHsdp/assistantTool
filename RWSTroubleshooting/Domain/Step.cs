@@ -6,6 +6,6 @@ namespace RWSTroubleshooting.Domain
     {
         public string Text { get; set; }
 
-        public IList<Option> Options { get; set; }
+        public Option[] Options { get; set; }
     }
 }
